@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/MaRiNaChursina/diplom/static/css/main.7115a85a.css",
+    "main.js": "/MaRiNaChursina/diplom/static/js/main.2d9aa9f9.js",
+    "static/media/fon.png": "/MaRiNaChursina/diplom/static/media/fon.e7c21061e4b9e7764be3.png",
+    "index.html": "/MaRiNaChursina/diplom/index.html",
+    "main.7115a85a.css.map": "/MaRiNaChursina/diplom/static/css/main.7115a85a.css.map",
+    "main.2d9aa9f9.js.map": "/MaRiNaChursina/diplom/static/js/main.2d9aa9f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7115a85a.css",
+    "static/js/main.2d9aa9f9.js"
+  ]
+}
