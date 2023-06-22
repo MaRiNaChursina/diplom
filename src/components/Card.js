@@ -37,7 +37,7 @@ function Card(props) {
                     <img src={card.imgCard}/>
                   </div>
                   <div className="item item-2 model__content-img">
-                    <img src={card.imgCard}/>
+                    <img src={card.imgCard1}/>
                   </div>
                   <div className="item item-3 model__content-img">
                     <img src={card.imgCard}/>
@@ -46,8 +46,16 @@ function Card(props) {
                     <img src={card.imgCard}/>
                   </div>
                 </Carousel>
+                <div className="model__content-text">
                 <h2 className="model__content-title">{card.title}</h2>
-                <p className="model__content-description">Примерная цена:  {card.price} ₽</p>         
+                <div className="model__content-description">
+                  <p  >Примерная цена:  {card.price} ₽</p> 
+                  <p  >Общая длинна изделия:  {card.length} м.</p>
+                  <p  >Фасады:  {card.methods_of_opening_the_facade} </p> 
+                  <p  >Петли:  {card.table_top} </p> 
+                  <p  > {card.wall_panel} </p> 
+                </div>
+                </div>
             </Modal>
           </div>
         );}

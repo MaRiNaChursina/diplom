@@ -32,7 +32,7 @@ export default function Grafic ({days, kol}){
           },
           title: {
             display: true,
-            text: 'График получения заказов из сайта',
+            text: 'График полученных заказов из сайта',
           },
         },
       };

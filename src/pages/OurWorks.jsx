@@ -1,6 +1,5 @@
 ﻿import React, { useEffect, useState } from "react";
 import CatalogList from "../components/UI/CatalogCard/CatalogList";
-import cards from "../data/catalogbd.js"
 
 export default function OurWorks(){
     const [catalog,setCatalog] = useState("");
@@ -8,29 +7,29 @@ export default function OurWorks(){
     useEffect(()=>{
         submitForm()
     },[])
+    useEffect(() => {
+        if ("caches" in window) {
+          caches.keys().then((names) => {
+            names.forEach((name) => {
+              caches.delete(name);
+            });
+          });
+        }
+      }, []);
     const submitForm = ()=>{
-        
-      
-    
-       fetch("http://dial.ru/catalogbd.php",{
+       fetch("http://chursina21.temp.swtest.ru/catalogbd.php",{
             method:"GET",
             header: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             }
             
         }).then(response => response.json())
-        .then(response => {setCatalog(response);})
-       
-      
-        
-        
+        .then(response => {setCatalog(response);})   
     }
    
     return(
         <div className="main__work">
-            {/* <CatalogList cards = {cards}/> */}
-            {catalog &&<><CatalogList catalog={catalog}/></>}
-            
+            {catalog &&<><CatalogList catalog={catalog}/></>} 
         </div>
     )
 }

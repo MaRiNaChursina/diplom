@@ -28,7 +28,7 @@ export default function CardList(props){
         <Card card = {cards} chekCard={chekCard} mainCard={false}/>
         </>
     )
-  
+       
     return(
         <ul>
             {cardElements}

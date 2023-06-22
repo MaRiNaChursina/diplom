@@ -19,9 +19,9 @@ export default function CardsList(props){
     return(
         <div className={style.main}>
             <div className={style.main__new_work}>
-                
+               <div className={style.main__new_works}>
                 <Cards cards = {cards} chekCard={true} mainCard={true}/>
-            </div>
+            </div></div> 
             <div className={style.main__new_news}>
                 {newsList}
                 

@@ -1,5 +1,5 @@
 ﻿.main-container{
-    height: 450px;
+    height: 380px;
     width: 450px;
     display: flex;
     align-items: center;
@@ -25,12 +25,15 @@
 @media (max-width:800px) {
     .all-items-container{
         height: 100%;
-
+        
     }
     .window{
         width: 70%;
     }
-   
+    .main-container{
+        height: 350px;
+        margin-left: 0;
+    }
 }
 
 

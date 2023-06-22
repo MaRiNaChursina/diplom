@@ -2,6 +2,7 @@
 
 function CardAdd (){
     const [imgCard, setImgCard] = useState(null);
+    const [imgCard1, setImgCard1] = useState(null);
     const [titles, setTitles] = useState(null);
     const [prices, setPrices] = useState(null);
     const [catalogNames, setCatalogNames] = useState(null);
@@ -23,6 +24,7 @@ function CardAdd (){
         
         const sendData ={
             imgCard:imgCard,
+            imgCard1:imgCard1,
             length:lengths,
             form_kitchen:kitchens,
             shape_of_the_upper_drawers:drawers,
@@ -40,16 +42,16 @@ function CardAdd (){
             
         }
         console.log(sendData)
-       fetch("http://dial.ru/addCard.php",{
+       fetch("http://chursina21.temp.swtest.ru/addCard.php",{
             method:"POST",
-            header: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+            // header: {
+            //     'Content-Type': 'application/x-www-form-urlencoded',
+            // },
             body: JSON.stringify(sendData)
-        }).then(response => console.log(response))
+        }).then(response => 
            
 
-                // (response.status== 200)?setAnswer(true):setAnswer(false)
+                (response.status== 200)?setAnswer(true):setAnswer(false))
        
        
         
@@ -58,12 +60,15 @@ function CardAdd (){
     }
 
     return(
-    <>
+    <div className="admin__add-card">
         {/* <img src={card.imgCard}/> */}
         <h2>Создание нового продукта</h2>
         <form onSubmit={submitForm}>
+            <div className="admin__add-form">
             <label> Указать полное название картинки:
         <input value={imgCard} onChange={(e)=>setImgCard(e.target.value)}/></label><br/>
+        <label> Указать полное название картинки2:
+        <input value={imgCard1} onChange={(e)=>setImgCard1(e.target.value)}/></label><br/>
         <label > Название продукта: 
         <input value={titles} onChange={(e)=>setTitles(e.target.value)}/> </label><br/>
         <label> Стоимость продукта: 
@@ -92,10 +97,11 @@ function CardAdd (){
             <input value={boxess} onChange={(e)=>setBoxess(e.target.value)}/></label><br/>
         <label>Дополнительные параметры:
             <input value={options} onChange={(e)=>setOptions(e.target.value)}/></label> <br/>
+        </div>
         <button type="submit" >Добавить</button>     
         </form>
-        
-    </>
+        {answer&& <p>Добавлина запись</p>}
+    </div>
     )
 }
 

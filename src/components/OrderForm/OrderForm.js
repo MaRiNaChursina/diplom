@@ -23,11 +23,11 @@ export default function OrderForm (){
             date:ddat
         }
         console.log(sendData)
-        fetch("http://dial.ru/index1.php",{
+        fetch("http://chursina21.temp.swtest.ru/index1.php",{
             method:"POST",
-            header: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+            // header: {
+            //     'Content-Type': 'application/x-www-form-urlencoded',
+            // },
             body: JSON.stringify(sendData)
         })
         .then ((result)=>{

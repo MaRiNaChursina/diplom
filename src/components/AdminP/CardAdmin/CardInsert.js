@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 
 function CardInsert(props)
 {
@@ -18,6 +18,9 @@ function CardInsert(props)
     const [boxess, setBoxess] = useState(card.boxes);
     const [options, setOptions] = useState(card.box_option);
     const[answer, setAnswer] =useState (false);
+
+
+   
 
     const submitForm = (e)=>{
         e.preventDefault();
@@ -41,11 +44,11 @@ function CardInsert(props)
             
         }
         console.log(sendData)
-       fetch("http://dial.ru/upcard.php",{
+       fetch("http://chursina21.temp.swtest.ru/upcard.php",{
             method:"POST",
-            header: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+            // header: {
+            //     'Content-Type': 'application/x-www-form-urlencoded',
+            // },
             body: JSON.stringify(sendData)
         }).then(response =>  (response.status== 200)?setAnswer(true):setAnswer(false))
         
@@ -61,7 +64,7 @@ function CardInsert(props)
             
         }
         console.log(sendData)
-       fetch("http://dial.ru/delcard.php",{
+       fetch("http://chursina21.temp.swtest.ru/delcard.php",{
             method:"POST",
             header: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -74,7 +77,7 @@ function CardInsert(props)
     }
 
     return(
-    <>
+    <div className="admin__card-insert">
         {/* <img src={card.imgCard}/> */}
         <h2>Данные о {titles}</h2>
         <form >
@@ -108,9 +111,11 @@ function CardInsert(props)
             <input value={options} onChange={(e)=>setOptions(e.target.value)}/></label> <br/>
         <button type="submit" onClick={submitForm}>Изменить</button>     
         </form>
+        <div className="admin__card-delet">
         <button type="delet" onClick={submitForm1}>Удалить</button>
-        
-    </>
+        </div>
+        {answer && <p>Данные изменены</p>}
+    </div>
     )
 }
 

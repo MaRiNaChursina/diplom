@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import CardsList from "../components/Main/CardsList";
-import OrderForm from "../components/OrderForm/OrderForm";
-import LogoAdmin from "../components/AdminP/LogoAdmin";
-import InvoiceForm from "../components/OrderForm/InvoiceForm";
-import Grafic from "../components/AdminP/Grafic";
-
-
-
-
+import MainImg from "../components/Main/MainImg";
 
 export default function Main(){
     const [cards,setCards] = useState("");
@@ -16,31 +9,32 @@ export default function Main(){
     useEffect(()=>{
         submitForm()
     },[])
+    useEffect(() => {
+        if ("caches" in window) {
+          caches.keys().then((names) => {
+            names.forEach((name) => {
+              caches.delete(name);
+            });
+          });
+        }
+      }, []);
 
     const submitForm = ()=>{
-        
-      
-    
-    
-       fetch("http://dial.ru/cardourwork.php",{
+
+       fetch("http://chursina21.temp.swtest.ru/cardourwork.php",{
             method:"GET",
             header: {
                 'Content-Type': 'application/x-www-form-urlencoded',
+                'Access-Control-Allow-Origin': '*'
             }
             
         }).then(response => response.json())
         .then(response => {setCards(response);})
-       
-      
-        
-        
     }
     return(
         <div className="main">
-            {/* <Grafic/> */}
-            {/* <LogoAdmin/> */}
+            <MainImg/>
             <CardsList cards={cards}/>
-            {/* <InvoiceForm/> */}
         </div>
     )
 }

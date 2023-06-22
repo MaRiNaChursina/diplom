@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useEffect } from "react";
 import { HashRouter as Router ,Routes, Route,Navigate  } from "react-router-dom";
 import Header from "./components/UI/Header/Header";
 import Main from "./pages/Main";
@@ -15,6 +15,7 @@ import CardAdmin from "./components/AdminP/CardAdmin/CardAdmin";
 import CardAdd from "./components/AdminP/CardAdmin/CardAdd";
 
 const App =() =>{
+	
 	
     return(
         <Router>

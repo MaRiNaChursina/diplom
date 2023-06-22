@@ -3,9 +3,12 @@
 function ParamOrder (props) {
     const {item} = props;
     return(
-        <>
-            <p>{item.Id}<br/>{item.date}{item.name}{item.phone}</p>
-        </>
+        <div>
+            <p>{item.Id}</p>
+            <p>{item.date}</p>
+            <p>{item.name}</p>
+           <p>{item.phone}</p>
+        </div>
     )
 }
 

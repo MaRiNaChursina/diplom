@@ -9,7 +9,7 @@ import Grafic from "./Grafic";
     let kol=[];
     let n=0,k=0;
     const el = day.map(item => 
-    <li key={item.Id}>
+    <li className="admin__param-li" key={item.Id}>
         <ParamOrder item={item}/>
     </li>)
     for(let i=0;i<day.length-1;i++){
@@ -24,16 +24,16 @@ import Grafic from "./Grafic";
    
      
     return(
-        <>
+        <div className="admin__order">
         <Grafic days={days} kol={kol}/>
-        <button onClick={()=> chek?setChek(false):setChek(true)}>Посмотреть заказы полученные из сайта</button>
-        {chek && <ul>
+        <button className="admin__order-button" onClick={()=> chek?setChek(false):setChek(true)}>Посмотреть заказы полученные из сайта</button>
+        {chek && <ul className="admin__param">
             {el}
             
         </ul>}
         
         
-        </>
+        </div>
     )
 }
 export default DataBD;

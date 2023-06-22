@@ -11,7 +11,7 @@ const Footer = () => {
                 <Link to="news"  >Полезная информация</Link>
                 <div className="footer__logo">
                     <img src="./imges/logo.svg"/>
-                    <p>DiAl</p>
+                    <p>ДиАл</p>
 
                 </div>
                 <a >Доставка</a>
@@ -20,7 +20,7 @@ const Footer = () => {
                 <Link to='admin'>Для сотрудников</Link>
             </div>
             <div className="footer__document">
-                <p>Website author:</p>
+                <p>Дипломный проект! Website author:</p>
                 <a href="https://github.com/MaRiNaChursina/diploma_project_DiAl/tree/master">Marina Chursina</a>
             </div>  
         </footer>

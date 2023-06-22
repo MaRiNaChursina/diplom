@@ -9,7 +9,7 @@ export default function  FormAdmin () {
         submitForm()
     },[])
     const submitForm = ()=>{
-       fetch("http://dial.ru/cart_list.php",{
+       fetch("http://chursina21.temp.swtest.ru/cart_list.php",{
             method:"GET",
             header: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -21,14 +21,14 @@ export default function  FormAdmin () {
     }
     
  return(
-    <>
-    
+    <div className="admin__main_main">
+    <div className="admin__main-a">
          <NavLink to="card" onClick={()=>cheked?setCheked(false):setCheked(true)}>{cheked?"Главная панель":"Карточки товара"}</NavLink>  
          <NavLink>Статьи</NavLink>
-         <NavLink>Просмотреть заказы</NavLink> 
+         <NavLink>Просмотреть заказы</NavLink> </div>
          {cheked ?<> <Outlet /></>:<>
          {day &&<><DataBD day={day}/></>}</>}
         
-    </>           
+    </div>           
  )
 }

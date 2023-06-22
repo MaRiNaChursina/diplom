@@ -12,6 +12,7 @@ export default function LogoAdmin (){
         username:"",
         password:""
     })
+    const [noadmin, setNoadmin] = useState(false);
     const handelChange = (e)=>{
         setData({...data, [e.target.name]: e.target.value});
         
@@ -24,7 +25,7 @@ export default function LogoAdmin (){
             password: data.password
         }
         
-        fetch("http://logo.ru/do_login.php",{
+        fetch("http://chursina21.temp.swtest.ru/do_login.php",{
             method:"POST",
             header: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -32,23 +33,22 @@ export default function LogoAdmin (){
             body: JSON.stringify(sendData)
         })
         .then ((result)=>{
-            if (result.redirected == true) setAdmin(true);
+            if (result.redirected == true) {setAdmin(true); setNoadmin(false);} else setNoadmin(true);
         })
     }
 
-   return( 
-        
+   return(    
              <>
-                {admin ? <><FormAdmin/></>:<form onSubmit={submitForm} >
-                        <legend>Контактная информация</legend>
-                        <p><label htmlFor="username">Имя <em>*</em></label><input type="text" id="username" name="username" onChange={handelChange} value={data.username}/></p>
-                        <p><label htmlFor="password">Пароль</label><input type="password" id="password" name="password" onChange={handelChange} value={data.password}/></p>
-                        <button type="submit" >Отправить форму</button>
+                {admin ? <><FormAdmin/></>:<form onSubmit={submitForm} className="logo__admin">
+                        <legend>Вход в административную панель</legend>
+                        <p><label htmlFor="username">Имя <em>*</em></label><input type="text" id="username" 
+                        name="username" onChange={handelChange} value={data.username}/></p>
+                        <p><label htmlFor="password">Пароль</label><input type="password" id="password" 
+                        name="password" onChange={handelChange} value={data.password}/></p>
+                        <button  type="submit" >Вход</button> 
+                        {noadmin &&<p className="admin__massege">Данные введены не верно! </p>}
                         
-                </form>}
-                
-                
-               
+                </form>} 
         </>
         )
         

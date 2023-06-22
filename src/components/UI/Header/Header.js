@@ -19,7 +19,7 @@ export default function Header(){
             <div className={style.header}>
                 <div className={style.logo}>
                     <img className={style.img} src="./imges/logo.svg"/>
-                    <p className={style.logo_p}>DiAl</p>
+                    <p className={style.logo_p}>ДиАл</p>
                 </div>
                 <div className={style.burgerMenu}>
                     {isDesktop? <NavMenu/>: <NavMenuMobiles />}

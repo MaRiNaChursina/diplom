@@ -9,7 +9,7 @@ export default function NewsCard () {
     <li key={news.id}><News card = {news}/></li>
     )
     return(
-        <ul>
+        <ul className="news_ab">
 
            {description}
         </ul>

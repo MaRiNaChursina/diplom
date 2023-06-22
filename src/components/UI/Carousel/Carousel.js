@@ -10,20 +10,20 @@ export default function Carousel ({children}) {
     const[offset, setOffset] = useState(0)
 
     const handleLeftArrowClick = () =>{
-        console.log('handleLeftArrowClick');
+        // console.log('handleLeftArrowClick');
         setOffset(currentOffset => {
             const newOffset = currentOffset + ITEM_WINDOW
-            console.log( newOffset)
+            // console.log( newOffset)
             return Math.min(newOffset, 0)
         })
     }
 
     const handleRightArrowClick = () =>{
-        console.log('handleRightArrowClick');
+        // console.log('handleRightArrowClick');
         setOffset((currentOffset)=>{
            const newOffset = currentOffset - ITEM_WINDOW
            const maxOffset = -(ITEM_WINDOW * (items.length - 1))
-           console.log(newOffset, maxOffset)
+        //    console.log(newOffset, maxOffset)
            return Math.max(newOffset, maxOffset)
         })
     }

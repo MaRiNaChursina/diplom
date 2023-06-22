@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 
@@ -8,6 +8,15 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 export default function Main(){
    const [cheack, setCheack] = useState(false);
    const [cheack1, setCheack1] = useState(false);
+   useEffect(() => {
+    if ("caches" in window) {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
+          caches.delete(name);
+        });
+      });
+    }
+  }, []);
     return(
         <div className="main__order">
             <div className="main_order_main">

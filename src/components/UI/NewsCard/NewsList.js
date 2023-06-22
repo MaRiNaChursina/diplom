@@ -17,7 +17,7 @@ export default function NewsList({cards}){
         </li>
     )
     return(
-        <ul>
+        <ul className="news_ab">
             {cardElements}
         </ul>
     )
